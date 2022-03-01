@@ -1,5 +1,13 @@
 <?php
-    
+    // if form is submitted create a new user and call verify user()
+
+    // if user is valid
+        //start a new session and store user id to the session variable()
+
+    // if user is not valid
+        // return an error message to say invalid
+        
+    // redirect to news article list page
     
 ?>
 <!DOCTYPE html>
