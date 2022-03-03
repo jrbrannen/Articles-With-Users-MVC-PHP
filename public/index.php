@@ -28,8 +28,6 @@
                 header("location: article-list.php");
                 exit;
             } 
-        }else{
-            $errorsArray = $user->errors;      
         }
               
     }
