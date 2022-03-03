@@ -1,4 +1,5 @@
 <?php
+    // make this page a form
     // if form is submitted create a new user and call verify user()
 
     // if user is valid
