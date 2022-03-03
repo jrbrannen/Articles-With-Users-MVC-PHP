@@ -26,6 +26,20 @@ class User {
         return $userArray;
     }
 
+    function validate() {
+        $isValid = true;
+
+        if (empty($this->userArray['user_name'])) {
+            $this->errors['user_name'] = "User name is required";
+            $isValid = false;
+        }
+        if (empty($this->userArray['password'])) {
+            $this->errors['password'] = "Password is required";
+            $isValid = false;
+        }
+        return $isValid;
+    }
+
     function verifyUser($userName, $password) {
         // set verifiedUser to false, flag tracks to see if user data is loaded
         $verifiedUser = false;
@@ -40,7 +54,6 @@ class User {
         if ($stmt->rowCount() == 1) {
             $userArray = $stmt->fetch(PDO::FETCH_ASSOC);
             $this->set($userArray);
-
             $verifiedUser = true;
         }
 
