@@ -1,7 +1,11 @@
 <?php
 
 class User {
+    var $userArray = array();
 
+    var $errors = array();
+
+    var $db = null;
     // connect to the db when a new user object is created
     function __construct() {
         $this->db = new PDO('mysql:host=localhost;dbname=wdv441;charset=utf8', 
@@ -10,6 +14,16 @@ class User {
 
     function set($userArray) {
         $this->userArray = $userArray;
+    }
+
+    function sanitize($userArray) {
+        if (!empty($userArray['user_name'])){
+            $userArray['user_name'] = filter_var($userArray['user_name'], FILTER_SANITIZE_STRING);
+        }
+        if (!empty($userArray['password'])) {
+            $userArray['password']= filter_var($userArray['password'], FILTER_SANITIZE_STRING);
+        } 
+        return $userArray;
     }
 
     function verifyUser($userName, $password) {
@@ -33,8 +47,13 @@ class User {
         return $verifiedUser;
     }
 
-    function checkLogin() {
+    function checkLogin($userId) {
         $loggedIn = false;
+
+        if (!empty($userId)) {
+            $loggedIn = true;
+        }
+        return $loggedIn;
     }
 
 }
