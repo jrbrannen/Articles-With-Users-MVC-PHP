@@ -4,7 +4,7 @@
     // create a user object
     $user = new User();
     // create an user array  
-    $userArray = array();
+    // $userArray = array();
     // create an error array
     $errorsArray = array();
     // TO DO sanatize
@@ -25,11 +25,14 @@
                 session_start();
                 $_SESSION['user_id'] = $user->userArray['user_id'];
                 // redirect to article list 
-                header("location: article-list.php");
+                header("location: user-list.php");
                 exit;
+            }else{
+                $errorsArray = $user->errors;
             } 
+        }else{
+           $errorsArray = $user->errors; 
         }
-              
     }
     require_once('../tpl/index.tpl.php');
 ?>
