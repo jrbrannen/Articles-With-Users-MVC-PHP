@@ -91,8 +91,8 @@ class User {
                     $this->userArray['password'],
                     $this->userArray['user_level'],
                     $this->userArray['user_first_name'],
-                    $this->userArray['user_last_name'],
-                    )
+                    $this->userArray['user_last_name']
+                )
             );
 
             // if the execute returns true, then store the new id back into the data property
@@ -107,7 +107,7 @@ class User {
                     user_name = ?,
                     password = ?,
                     user_level = ?,
-                    user_first_name = ?
+                    user_first_name = ?,
                     user_last_name = ?
                 WHERE user_id = ?"
             );
