@@ -53,7 +53,7 @@ if($user->checkLogin($userId)) {
     }
     // go back to user list view page
     if (isset($_POST['Cancel'])) {
-        header("location: index.php");
+        header("location: user-list.php");
         exit;
     }
     // include the view
